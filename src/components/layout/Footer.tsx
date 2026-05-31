@@ -14,7 +14,7 @@ export default function Footer() {
           className="font-display italic text-2xl mb-2 gradient-text"
           style={{ fontSize: "1.3rem" }}
         >
-          Built with passion & Next.js
+          Built with Next.js
         </p>
         <p
           style={{
@@ -23,7 +23,7 @@ export default function Footer() {
             fontFamily: "var(--font-mono, monospace)",
           }}
         >
-          © {new Date().getFullYear()} &lt;YourName /&gt; — All rights reserved
+          © {new Date().getFullYear()} jayelsr04 — All rights reserved
         </p>
         <div className="flex justify-center gap-5 mt-5">
           {[
