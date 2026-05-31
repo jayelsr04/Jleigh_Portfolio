@@ -35,7 +35,7 @@ src/
 ├── components/
 │   ├── layout/      # Navbar, Footer
 │   ├── sections/    # Hero, About, Projects, Contact
-│   └── ui/          # BorderGlow, BubbleBackground, ThemeToggle, WaveDivider
+│   └── ui/          # BorderGlow, ThemeToggle, WaveDivider, .etc
 ├── lib/             # Custom hooks (useScrollReveal)
 └── styles/          # Global CSS, border glow styles
 ```
