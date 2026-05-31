@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import ScrambledText from '../ui/ScrambledText';
 import DotGrid from '../ui/dot-grid';
+import ScrollVelocity from '../ui/ScrollVelocity';
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -73,26 +74,22 @@ export default function HeroSection() {
           transition: "all 1s ease",
         }}
       >
-        {/* Small eyebrow label */}
-        <div
-          className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full"
-          style={{
-            background: "rgba(136, 201, 191, 0.1)",
-            border: "1px solid rgba(136, 201, 191, 0.3)",
-            color: "var(--ocean-seafoam)",
-            fontSize: "0.8rem",
-            fontFamily: "var(--font-mono, 'JetBrains Mono', monospace)",
-            letterSpacing: "0.1em",
-          }}
-        >
-          <span
-            className="w-2 h-2 rounded-full"
-            style={{
-              background: "var(--ocean-seafoam)",
-              animation: "shimmer 2s ease-in-out infinite",
-            }}
+        {/* Full-Width Infinite Scroll Velocity Marquee */}
+        <div className="w-full mb-8 overflow-hidden select-none pointer-events-none opacity-80">
+          <ScrollVelocity
+            velocity={25} // Slightly softer velocity since the text travels over a wider layout stretch
+            numCopies={12} // Increased duplicates to ensure zero layout gaps on wide desktop screens
+            texts={[
+              <div key="marquee-item" className="flex items-center gap-3 mx-6 text-xs tracking-[0.2em]">
+                <span style={{ 
+                  color: "var(--ocean-seafoam)", 
+                  fontFamily: "var(--font-mono, 'JetBrains Mono', monospace)" 
+                }}>
+                  AVAILABLE FOR INTERNSHIP
+                </span>
+              </div>
+            ]}
           />
-          Available for Internship
         </div>
 
         {/* Name */}

@@ -8,7 +8,7 @@ import ScrambledText from '../ui/ScrambledText';
 const skills = [
   "JavaScript", "TypeScript", "React", "Next.js",
   "Node.js", "C", "C++", "Python",
-  "MySQL", "PostgreSQL", "MongoDB", "REST APIs",
+  "MySQL", "PostgreSQL", "Vercel", "REST APIs",
   "Git", "Docker", "TailwindCSS", "Figma",
 ];
 
