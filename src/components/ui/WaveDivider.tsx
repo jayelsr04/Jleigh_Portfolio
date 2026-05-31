@@ -29,21 +29,21 @@ export default function WaveDivider({
         {/* Layer 1 - back wave */}
         <path
           className="wave-layer-1"
-          fill={color}
           fillOpacity="0.4"
+          style={{ fill: color }}
           d="M0,60 C180,100 360,20 540,60 C720,100 900,20 1080,60 C1260,100 1380,40 1440,60 L1440,120 L0,120 Z"
         />
         {/* Layer 2 - mid wave */}
         <path
           className="wave-layer-2"
-          fill={color}
           fillOpacity="0.6"
+          style={{ fill: color }}
           d="M0,70 C240,30 480,110 720,70 C960,30 1200,110 1440,70 L1440,120 L0,120 Z"
         />
         {/* Layer 3 - front wave */}
         <path
           className="wave-layer-3"
-          fill={color}
+          style={{ fill: color }}
           fillOpacity="1"
           d="M0,80 C360,40 720,120 1080,80 C1260,60 1380,90 1440,80 L1440,120 L0,120 Z"
         />

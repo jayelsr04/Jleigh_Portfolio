@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -47,11 +48,11 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         background: scrolled
-          ? "rgba(10, 22, 40, 0.85)"
+          ? "var(--nav-bg)"
           : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled
-          ? "1px solid rgba(168, 216, 234, 0.1)"
+          ? "1px solid var(--nav-border)"
           : "none",
       }}
     >
@@ -88,44 +89,53 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <a
-          href="https://github.com/jayelsr04"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:flex items-center gap-2 btn-outline text-sm"
-          style={{ padding: "8px 20px" }}
-        >
-          <GitHubIcon />
-          GitHub
-        </a>
+        <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: "none", border: "none", cursor: "pointer" }}
-          aria-label="Toggle menu"
-        >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="block w-6 h-0.5 transition-all duration-300"
-              style={{
-                background: "var(--ocean-foam)",
-                transform:
-                  menuOpen
-                    ? i === 0
-                      ? "rotate(45deg) translate(4px, 4px)"
-                      : i === 2
-                      ? "rotate(-45deg) translate(4px, -4px)"
-                      : "opacity 0"
-                    : "none",
-                opacity: menuOpen && i === 1 ? 0 : 1,
-              }}
-            />
-          ))}
-        </button>
+          {/* CTA */}
+          <a
+            href="https://github.com/jayelsr04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-2 btn-outline text-sm"
+            style={{ padding: "8px 20px" }}
+          >
+            <GitHubIcon />
+            GitHub
+          </a>
+
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="flex flex-col gap-1.5 p-2"
+              onClick={() => setMenuOpen(!menuOpen)}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+              aria-label="Toggle menu"
+            >
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className="block w-6 h-0.5 transition-all duration-300"
+                  style={{
+                    background: "var(--ocean-foam)",
+                    transform:
+                      menuOpen
+                        ? i === 0
+                          ? "rotate(45deg) translate(4px, 4px)"
+                          : i === 2
+                          ? "rotate(-45deg) translate(4px, -4px)"
+                          : "opacity 0"
+                        : "none",
+                    opacity: menuOpen && i === 1 ? 0 : 1,
+                  }}
+                />
+              ))}
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -133,7 +143,7 @@ export default function Navbar() {
         className="md:hidden overflow-hidden transition-all duration-300"
         style={{
           maxHeight: menuOpen ? "300px" : "0",
-          background: "rgba(10, 22, 40, 0.95)",
+          background: "var(--nav-bg)",
           backdropFilter: "blur(20px)",
         }}
       >

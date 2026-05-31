@@ -50,22 +50,22 @@ export default function ProjectsSection() {
     <section
       id="projects"
       className="relative"
-      style={{ background: "#0a1628" }}
+      style={{ background: "var(--section-alt-bg)" }}
     >
       <div className="max-w-6xl mx-auto px-6 py-24">
         {/* Section Header */}
         <div ref={ref} className="text-center mb-16">
           <p
             className="font-mono text-sm mb-3"
-            style={{ color: "var(--ocean-seafoam)", letterSpacing: "0.12em" }}
-          >
-            02 / PROJECTS
+              style={{ color: "var(--ocean-seafoam)", letterSpacing: "0.12em" }}
+            >
+              02 / PROJECTS
           </p>
           <h2
             className="font-display font-bold"
             style={{
               fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              color: "white",
+              color: "var(--text-main)",
               lineHeight: "1.2",
             }}
           >
@@ -82,7 +82,7 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      <WaveDivider color="#0d2240" />
+      <WaveDivider color="var(--section-bg)" />
     </section>
   );
 }
@@ -113,7 +113,7 @@ function ProjectCard({
       onMouseLeave={(e) => {
         const el = e.currentTarget as HTMLDivElement;
         el.style.transform = "translateY(0)";
-        el.style.borderColor = "rgba(168, 216, 234, 0.15)";
+        el.style.borderColor = "var(--surface-border)";
         el.style.boxShadow = "none";
       }}
     >
@@ -142,7 +142,7 @@ function ProjectCard({
 
         <h3
           className="font-display font-bold mb-3"
-          style={{ fontSize: "1.25rem", color: "white" }}
+          style={{ fontSize: "1.25rem", color: "var(--text-main)" }}
         >
           {project.title}
         </h3>
@@ -151,7 +151,7 @@ function ProjectCard({
           className="mb-5 leading-relaxed"
           style={{
             fontSize: "0.87rem",
-            color: "rgba(168,216,234,0.55)",
+            color: "var(--text-muted)",
             lineHeight: "1.75",
           }}
         >

@@ -19,7 +19,8 @@ export default function HeroSection() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden noise-bg"
       style={{
-        background: "linear-gradient(180deg, #060e1a 0%, #0a1628 40%, #0d2240 100%)",
+        background:
+          "linear-gradient(180deg, var(--hero-top) 0%, var(--hero-mid) 40%, var(--hero-bottom) 100%)",
       }}
     >
       {/* Deep ocean gradient layers */}
@@ -43,6 +44,7 @@ export default function HeroSection() {
               background: "rgba(168, 216, 234, 0.6)",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 60}%`,
+              opacity: "0.7",
               animation: `shimmer ${2 + Math.random() * 4}s ease-in-out ${Math.random() * 4}s infinite`,
             }}
           />
@@ -85,7 +87,7 @@ export default function HeroSection() {
           className="font-display font-black mb-2 leading-none"
           style={{
             fontSize: "clamp(2.8rem, 8vw, 6rem)",
-            color: "white",
+            color: "var(--text-main)",
             letterSpacing: "-0.02em",
           }}
         >
@@ -100,7 +102,7 @@ export default function HeroSection() {
           className="font-display font-normal mb-6"
           style={{
             fontSize: "clamp(1.1rem, 3vw, 1.8rem)",
-            color: "rgba(168, 216, 234, 0.7)",
+            color: "var(--text-soft)",
             letterSpacing: "0.01em",
           }}
         >
@@ -112,7 +114,7 @@ export default function HeroSection() {
           className="max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{
             fontSize: "1rem",
-            color: "rgba(168, 216, 234, 0.55)",
+            color: "var(--text-muted)",
             lineHeight: "1.8",
           }}
         >
@@ -174,8 +176,8 @@ export default function HeroSection() {
           style={{ width: "104%", height: "120px" }}
         >
           <path
-            fill="#0d2240"
             fillOpacity="0.5"
+            style={{ fill: "var(--wave-fill)" }}
             d="M0,80 C180,120 360,40 540,80 C720,120 900,40 1080,80 C1260,120 1380,60 1440,80 L1440,160 L0,160 Z"
           />
         </svg>
@@ -188,8 +190,8 @@ export default function HeroSection() {
           style={{ width: "104%", height: "100px" }}
         >
           <path
-            fill="#0d2240"
             fillOpacity="0.7"
+            style={{ fill: "var(--wave-fill)" }}
             d="M0,90 C240,50 480,130 720,90 C960,50 1200,130 1440,90 L1440,160 L0,160 Z"
           />
         </svg>
@@ -202,7 +204,7 @@ export default function HeroSection() {
           style={{ width: "104%", height: "80px" }}
         >
           <path
-            fill="#0d2240"
+            style={{ fill: "var(--wave-fill)" }}
             d="M0,100 C360,60 720,140 1080,100 C1260,80 1380,110 1440,100 L1440,160 L0,160 Z"
           />
         </svg>

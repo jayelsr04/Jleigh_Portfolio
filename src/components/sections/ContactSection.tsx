@@ -36,9 +36,9 @@ export default function ContactSection() {
     <section
       id="contact"
       className="relative"
-      style={{ background: "#0d2240" }}
+      style={{ background: "var(--section-bg)" }}
     >
-      <WaveDivider flip={true} color="#0d2240" topColor="#0a1628" />
+      <WaveDivider flip={true} color="var(--section-bg)" topColor="var(--section-alt-bg)" />
 
       <div className="max-w-4xl mx-auto px-6 py-24">
         {/* Header */}
@@ -53,7 +53,7 @@ export default function ContactSection() {
             className="font-display font-bold mb-4"
             style={{
               fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              color: "white",
+              color: "var(--text-main)",
               lineHeight: "1.2",
             }}
           >
@@ -62,7 +62,7 @@ export default function ContactSection() {
           </h2>
           <p
             style={{
-              color: "rgba(168,216,234,0.55)",
+              color: "var(--text-muted)",
               fontSize: "0.95rem",
               maxWidth: "480px",
               margin: "0 auto",
@@ -87,7 +87,7 @@ export default function ContactSection() {
             >
               Message sent!
             </h3>
-            <p style={{ color: "rgba(168,216,234,0.6)", fontSize: "0.9rem" }}>
+            <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>
               Thanks for reaching out. I&apos;ll get back to you soon.
             </p>
             <button
@@ -106,7 +106,7 @@ export default function ContactSection() {
               <div>
                 <label
                   className="block text-sm mb-1.5 font-mono"
-                  style={{ color: "rgba(168,216,234,0.6)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
+                  style={{ color: "var(--text-soft)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
                 >
                   YOUR NAME
                 </label>
@@ -117,11 +117,11 @@ export default function ContactSection() {
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200"
                   style={{
-                    background: "rgba(10, 22, 40, 0.6)",
+                    background: "var(--input-bg)",
                     border: errors.name
                       ? "1px solid var(--coral)"
-                      : "1px solid rgba(168,216,234,0.15)",
-                    color: "var(--ocean-mist)",
+                      : "1px solid var(--surface-border)",
+                    color: "var(--text-main)",
                     fontSize: "0.92rem",
                   }}
                   onFocus={(e) => {
@@ -146,7 +146,7 @@ export default function ContactSection() {
               <div>
                 <label
                   className="block text-sm mb-1.5 font-mono"
-                  style={{ color: "rgba(168,216,234,0.6)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
+                  style={{ color: "var(--text-soft)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
                 >
                   EMAIL ADDRESS
                 </label>
@@ -157,11 +157,11 @@ export default function ContactSection() {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200"
                   style={{
-                    background: "rgba(10, 22, 40, 0.6)",
+                    background: "var(--input-bg)",
                     border: errors.email
                       ? "1px solid var(--coral)"
-                      : "1px solid rgba(168,216,234,0.15)",
-                    color: "var(--ocean-mist)",
+                      : "1px solid var(--surface-border)",
+                    color: "var(--text-main)",
                     fontSize: "0.92rem",
                   }}
                   onFocus={(e) => {
@@ -187,7 +187,7 @@ export default function ContactSection() {
             <div className="mb-7">
               <label
                 className="block text-sm mb-1.5 font-mono"
-                style={{ color: "rgba(168,216,234,0.6)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
+                style={{ color: "var(--text-soft)", fontSize: "0.78rem", letterSpacing: "0.08em" }}
               >
                 MESSAGE
               </label>
@@ -198,11 +198,11 @@ export default function ContactSection() {
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200 resize-none"
                 style={{
-                  background: "rgba(10, 22, 40, 0.6)",
+                  background: "var(--input-bg)",
                   border: errors.message
                     ? "1px solid var(--coral)"
-                    : "1px solid rgba(168,216,234,0.15)",
-                  color: "var(--ocean-mist)",
+                    : "1px solid var(--surface-border)",
+                  color: "var(--text-main)",
                   fontSize: "0.92rem",
                   lineHeight: "1.7",
                 }}

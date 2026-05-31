@@ -18,9 +18,9 @@ export default function AboutSection() {
     <section
       id="about"
       className="relative"
-      style={{ background: "#0d2240" }}
+      style={{ background: "var(--section-bg)" }}
     >
-      <WaveDivider flip={true} color="#0d2240" />
+      <WaveDivider flip={true} color="var(--section-bg)" />
 
       <div className="max-w-6xl mx-auto px-6 py-24">
         <div ref={ref} className="grid md:grid-cols-2 gap-16 items-center">
@@ -51,7 +51,7 @@ export default function AboutSection() {
                 style={{
                   width: "220px",
                   height: "220px",
-                  border: "3px solid rgba(168, 216, 234, 0.3)",
+                  border: "3px solid var(--surface-border)",
                 }}
               >
                 <Image
@@ -69,7 +69,7 @@ export default function AboutSection() {
                 style={{
                   bottom: "-10px",
                   right: "-20px",
-                  border: "1px solid rgba(168,216,234,0.2)",
+                  border: "1px solid var(--surface-border)",
                 }}
               >
                 <p
@@ -86,7 +86,7 @@ export default function AboutSection() {
                 style={{
                   top: "-10px",
                   left: "-20px",
-                  border: "1px solid rgba(168,216,234,0.2)",
+                  border: "1px solid var(--surface-border)",
                 }}
               >
                 <p
@@ -113,7 +113,7 @@ export default function AboutSection() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "white",
+                color: "var(--text-main)",
                 lineHeight: "1.2",
               }}
             >
@@ -126,7 +126,7 @@ export default function AboutSection() {
             <div
               className="space-y-4 mb-8"
               style={{
-                color: "rgba(168,216,234,0.65)",
+                color: "var(--text-muted)",
                 lineHeight: "1.8",
                 fontSize: "0.95rem",
               }}
@@ -151,7 +151,7 @@ export default function AboutSection() {
             <div>
               <p
                 className="font-mono text-xs mb-3"
-                style={{ color: "rgba(168,216,234,0.4)", letterSpacing: "0.1em" }}
+                style={{ color: "var(--text-muted)", letterSpacing: "0.1em" }}
               >
                 TECH STACK
               </p>
@@ -167,7 +167,7 @@ export default function AboutSection() {
         </div>
       </div>
 
-      <WaveDivider color="#0a1628" />
+      <WaveDivider color="var(--section-alt-bg)" />
     </section>
   );
 }
