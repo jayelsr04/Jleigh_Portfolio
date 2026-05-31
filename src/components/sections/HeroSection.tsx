@@ -84,29 +84,27 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-4xl mx-auto text-center">
-        {!isMobile && (
-          <div className="w-full mb-8 overflow-hidden select-none pointer-events-none opacity-80">
-            <ScrollVelocity
-              velocity={25}
-              numCopies={12}
-              texts={[
-                <div
-                  key="marquee-item"
-                  className="flex items-center gap-3 mx-6 text-xs tracking-[0.2em]"
+        <div className="w-full mb-4 sm:mb-8 overflow-hidden select-none pointer-events-none opacity-80">
+          <ScrollVelocity
+            velocity={isMobile ? 14 : 25}
+            numCopies={isMobile ? 6 : 12}
+            texts={[
+              <div
+                key="marquee-item"
+                className="flex items-center gap-2 sm:gap-3 mx-3 sm:mx-6 text-[10px] sm:text-xs tracking-[0.18em] sm:tracking-[0.2em]"
+              >
+                <span
+                  style={{
+                    color: "var(--ocean-seafoam)",
+                    fontFamily: "var(--font-mono, 'JetBrains Mono', monospace)",
+                  }}
                 >
-                  <span
-                    style={{
-                      color: "var(--ocean-seafoam)",
-                      fontFamily: "var(--font-mono, 'JetBrains Mono', monospace)",
-                    }}
-                  >
-                    AVAILABLE FOR INTERNSHIP
-                  </span>
-                </div>,
-              ]}
-            />
-          </div>
-        )}
+                  AVAILABLE FOR INTERNSHIP
+                </span>
+              </div>,
+            ]}
+          />
+        </div>
 
         <h1
           className="font-display font-black mb-3 leading-none"
