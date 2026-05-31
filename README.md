@@ -1,6 +1,6 @@
 # Jana Leigh — Portfolio
 
-A personal portfolio website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**, featuring an ocean-themed UI with animated waves, a bubble background, scroll reveal effects, and dark/light mode toggle.
+A personal portfolio website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**, dedicated to feature my projects as a 3rd Year Computer Science student.
 
 ## 🌊 Live Demo
 [View Portfolio](https://jleighportfolio.vercel.app/)
@@ -35,7 +35,7 @@ src/
 ├── components/
 │   ├── layout/      # Navbar, Footer
 │   ├── sections/    # Hero, About, Projects, Contact
-│   └── ui/          # BorderGlow, BubbleBackground, ThemeToggle, WaveDivider
+│   └── ui/          # BorderGlow, ThemeToggle, WaveDivider, Electric Border, and more
 ├── lib/             # Custom hooks (useScrollReveal)
 └── styles/          # Global CSS, border glow styles
 ```
