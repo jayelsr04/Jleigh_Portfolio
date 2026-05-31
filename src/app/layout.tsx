@@ -3,6 +3,10 @@ import "../styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Portfolio | Web Developer",
+  icons: {
+    icon: "/icon.png",  
+    shortcut: "/icon.png",
+  },
   description: "Personal portfolio showcasing web development projects",
 };
 
