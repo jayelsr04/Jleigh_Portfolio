@@ -141,9 +141,8 @@ export default function AboutSection() {
                 functional software solutions.
               </p>
               <p>
-                When I&apos;m not coding, you&apos;ll find me exploring the ocean (or
-                dreaming about it), leveling up in game dev, or contributing to
-                open-source projects.
+                When I&apos;m not coding, you&apos;ll find me reading books or dreaming about the ocean waves, 
+                leveling up in game dev, or contributing to open-source projects.
               </p>
             </div>
 
