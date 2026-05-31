@@ -78,7 +78,7 @@ export default function ContactSection() {
         {submitted ? (
           <div
             className="glass-card rounded-2xl p-10 text-center"
-            style={{ border: "1px solid rgba(136,201,191,0.3)" }}
+            style={{ border: "1px solid var(--surface-border)" }}
           >
             <div className="text-5xl mb-4">🌊</div>
             <h3
@@ -127,12 +127,12 @@ export default function ContactSection() {
                   onFocus={(e) => {
                     if (!errors.name)
                       (e.target as HTMLInputElement).style.borderColor =
-                        "rgba(168,216,234,0.4)";
+                        "var(--ocean-foam)";
                   }}
                   onBlur={(e) => {
                     if (!errors.name)
                       (e.target as HTMLInputElement).style.borderColor =
-                        "rgba(168,216,234,0.15)";
+                        "var(--surface-border)";
                   }}
                 />
                 {errors.name && (
@@ -167,12 +167,12 @@ export default function ContactSection() {
                   onFocus={(e) => {
                     if (!errors.email)
                       (e.target as HTMLInputElement).style.borderColor =
-                        "rgba(168,216,234,0.4)";
+                        "var(--ocean-foam)";
                   }}
                   onBlur={(e) => {
                     if (!errors.email)
                       (e.target as HTMLInputElement).style.borderColor =
-                        "rgba(168,216,234,0.15)";
+                        "var(--surface-border)";
                   }}
                 />
                 {errors.email && (
@@ -209,12 +209,12 @@ export default function ContactSection() {
                 onFocus={(e) => {
                   if (!errors.message)
                     (e.target as HTMLTextAreaElement).style.borderColor =
-                      "rgba(168,216,234,0.4)";
+                      "var(--ocean-foam)";
                 }}
                 onBlur={(e) => {
                   if (!errors.message)
                     (e.target as HTMLTextAreaElement).style.borderColor =
-                      "rgba(168,216,234,0.15)";
+                      "var(--surface-border)";
                 }}
               />
               {errors.message && (

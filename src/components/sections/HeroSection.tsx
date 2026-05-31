@@ -152,7 +152,7 @@ export default function HeroSection() {
           </span>
           <div
             className="w-5 h-8 rounded-full flex justify-center pt-1.5"
-            style={{ border: "1.5px solid rgba(168,216,234,0.4)" }}
+            style={{ border: "1.5px solid var(--surface-border)" }}
           >
             <div
               className="w-1 h-2 rounded-full"
