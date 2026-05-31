@@ -215,19 +215,19 @@ const DotGrid: React.FC<DotGridProps> = ({
     };
   }, [buildGrid]);
 
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
+    useEffect(() => {
+    const handlePointerMove = (clientX: number, clientY: number) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-      
+
       const rect = canvas.getBoundingClientRect();
       const now = performance.now();
       const pr = pointerRef.current;
       const dt = pr.lastTime ? now - pr.lastTime : 16;
-      
-      const currentX = e.clientX - rect.left;
-      const currentY = e.clientY - rect.top;
-      
+
+      const currentX = clientX - rect.left;
+      const currentY = clientY - rect.top;
+
       const dx = currentX - pr.lastX;
       const dy = currentY - pr.lastY;
       let vx = (dx / dt) * 1000;
@@ -257,6 +257,16 @@ const DotGrid: React.FC<DotGridProps> = ({
       }
     };
 
+    const onMove = (e: MouseEvent) => {
+      handlePointerMove(e.clientX, e.clientY);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (!touch) return;
+      handlePointerMove(touch.clientX, touch.clientY);
+    };
+
     const onClick = (e: MouseEvent) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
@@ -276,22 +286,49 @@ const DotGrid: React.FC<DotGridProps> = ({
       }
     };
 
+    const onTouchStart = (e: TouchEvent) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      if (!touch) return;
+
+      const cx = touch.clientX - rect.left;
+      const cy = touch.clientY - rect.top;
+
+      for (const dot of dotsRef.current) {
+        const dist = Math.hypot(dot.cx - cx, dot.cy - cy);
+        if (dist < shockRadius) {
+          const falloff = Math.max(0, 1 - dist / shockRadius);
+          const angle = Math.atan2(dot.cy - cy, dot.cx - cx);
+          const force = falloff * shockStrength;
+          dot.vx += Math.cos(angle) * force;
+          dot.vy += Math.sin(angle) * force;
+        }
+      }
+    };
+
     const throttledMove = throttle(onMove, 16);
+    const throttledTouchMove = throttle(onTouchMove, 16);
     const wrap = wrapperRef.current;
-    
+
     if (wrap) {
-      wrap.addEventListener('mousemove', throttledMove, { passive: true });
-      wrap.addEventListener('click', onClick);
+      wrap.addEventListener("mousemove", throttledMove, { passive: true });
+      wrap.addEventListener("click", onClick);
+      wrap.addEventListener("touchmove", throttledTouchMove, { passive: true });
+      wrap.addEventListener("touchstart", onTouchStart, { passive: true });
     }
 
     return () => {
       if (wrap) {
-        wrap.removeEventListener('mousemove', throttledMove);
-        wrap.removeEventListener('click', onClick);
+        wrap.removeEventListener("mousemove", throttledMove);
+        wrap.removeEventListener("click", onClick);
+        wrap.removeEventListener("touchmove", throttledTouchMove);
+        wrap.removeEventListener("touchstart", onTouchStart);
       }
     };
   }, [maxSpeed, speedTrigger, proximity, shockRadius, shockStrength]);
-
+  
   return (
     <div className={`dot-grid ${className}`} style={style}>
       <div ref={wrapperRef} className="dot-grid__wrap">
