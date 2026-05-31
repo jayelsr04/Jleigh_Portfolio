@@ -5,7 +5,7 @@ import ScrambledText from "../ui/ScrambledText";
 import DotGrid from "../ui/dot-grid";
 import ScrollVelocity from "../ui/ScrollVelocity";
 
-export default function HeroSection() {
+export default function HomeSection() {
   const [loaded, setLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
