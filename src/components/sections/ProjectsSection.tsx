@@ -22,7 +22,7 @@ const projects: Project[] = [
     tech: ["Web App", "Med Tracker", "Appt Tracker"],
     link: "https://github.com/secretiv3plotter/Med-Dumdom",
     image: "/meddumdom.png",
-    accent: "#88c9bf",
+    accent: "#9595f6",
   },
   {
     title: "SlimyPals",
@@ -31,7 +31,7 @@ const projects: Project[] = [
     tech: ["Game Dev", "Slime Game", "Interactive"],
     link: "https://github.com/secretiv3plotter/SlimyPalsBackend",
     image: "/slimypals.png",
-    accent: "#a8d8ea",
+    accent: "#3434a3",
   },
   {
     title: "UPC Dorm Management System",
