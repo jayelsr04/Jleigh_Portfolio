@@ -41,5 +41,4 @@ src/
 ```
 
 ## 📬 Contact
-Made by **Jana Leigh** — UP Cebu Computer Science student
-Feel free to reach out via the contact form on the site!
+Made by **Jana Leigh** 
