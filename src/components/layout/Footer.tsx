@@ -4,28 +4,20 @@ import WaveDivider from "@/components/ui/WaveDivider";
 
 export default function Footer() {
   return (
-    <footer className="relative" style={{ background: "var(--ocean-deep)" }}>
-      <WaveDivider flip={false} color="#060e1a" topColor="#0a1628" />
-      <div
-        className="relative z-10 text-center py-10 px-6"
-        style={{ background: "#060e1a" }}
-      >
-        <p
-          className="font-display italic text-2xl mb-2 gradient-text"
-          style={{ fontSize: "1.3rem" }}
-        >
+    <footer className="site-footer">
+      <WaveDivider
+        flip={false}
+        color="var(--wave-fill)"
+        topColor="var(--section-alt-bg)"
+      />
+      <div className="site-footer__content">
+        <p className="site-footer__title font-display italic text-2xl mb-2 gradient-text">
           Built with Next.js
         </p>
-        <p
-          style={{
-            color: "rgba(168, 216, 234, 0.4)",
-            fontSize: "0.82rem",
-            fontFamily: "var(--font-mono, monospace)",
-          }}
-        >
-          © {new Date().getFullYear()} jayelsr04 — All rights reserved
+        <p className="site-footer__copy">
+          © {new Date().getFullYear()} jayelsr04 - All rights reserved
         </p>
-        <div className="flex justify-center gap-5 mt-5">
+        <div className="site-footer__links">
           {[
             {
               href: "https://github.com/jayelsr04",
@@ -43,16 +35,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              className="transition-all duration-300 hover:scale-110"
-              style={{ color: "rgba(168, 216, 234, 0.5)" }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget as HTMLAnchorElement).style.color =
-                  "var(--ocean-foam)")
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget as HTMLAnchorElement).style.color =
-                  "rgba(168, 216, 234, 0.5)")
-              }
+              className="site-footer__link"
             >
               {s.icon}
             </a>

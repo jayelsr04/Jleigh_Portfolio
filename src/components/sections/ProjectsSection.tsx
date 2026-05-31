@@ -112,7 +112,7 @@ function ProjectCard({
       >
         {/* Top accent bar */}
         <div
-          className="h-1 w-full"
+          className="absolute top-0 left-4 right-0 h-1 rounded-t-[28px] overflow-hidden"
           style={{
             background: `linear-gradient(90deg, ${project.accent}80, transparent)`,
           }}

@@ -320,3 +320,58 @@ html[data-theme="light"] .theme-toggle-track {
 .nav-link.active {
   color: var(--ocean-foam);
 }
+
+/* Footer */
+.site-footer {
+  position: relative;
+  background: linear-gradient(180deg, var(--section-bg) 0%, var(--ocean-deep) 100%);
+}
+
+.site-footer__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(180deg, var(--section-alt-bg) 0%, var(--section-bg) 100%);
+}
+
+.site-footer__title {
+  font-size: 1.3rem;
+}
+
+.site-footer__copy {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-family: var(--font-mono, monospace);
+}
+
+.site-footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.site-footer__link {
+  color: var(--text-soft);
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
+}
+
+.site-footer__link:hover {
+  color: var(--ocean-foam);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+html[data-theme="light"] .site-footer {
+  background: linear-gradient(180deg, var(--section-bg) 0%, var(--section-alt-bg) 100%);
+}
+
+html[data-theme="light"] .site-footer__content {
+  background: linear-gradient(180deg, var(--section-alt-bg) 0%, var(--page-bg) 100%);
+}
+
+html[data-theme="light"] .site-footer__link:hover {
+  color: var(--ocean-seafoam);
+}
