@@ -112,7 +112,6 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="text"
-                  placeholder="Juan dela Cruz"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200"
@@ -152,7 +151,6 @@ export default function ContactSection() {
                 </label>
                 <input
                   type="email"
-                  placeholder="juan@example.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200"
@@ -193,7 +191,7 @@ export default function ContactSection() {
               </label>
               <textarea
                 rows={5}
-                placeholder="Tell me about your project or just say hello..."
+                placeholder="Say Hello..."
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="w-full rounded-xl px-4 py-3 outline-none transition-all duration-200 resize-none"

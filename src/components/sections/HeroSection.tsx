@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ScrambledText from '../ui/ScrambledText';
+import DotGrid from '../ui/dot-grid';
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -33,8 +34,19 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Interactive Dot Grid Background Layer */}
+      <DotGrid
+        dotSize={3}
+        gap={32}
+        baseColor="rgba(136, 201, 191, 0.15)"  
+        activeColor="#88c9bf"             
+        proximity={140}
+        shockRadius={240}
+        shockStrength={10}
+      />
+
       {/* Stars/particles in background */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 40 }).map((_, i) => (
           <div
             key={i}
@@ -108,7 +120,7 @@ export default function HeroSection() {
           }}
         >
           Full-Stack Web Developer
-        </h2>
+        </h2> 
 
         {/* Bio */}
         <ScrambledText
@@ -118,10 +130,10 @@ export default function HeroSection() {
             color: "var(--text-muted)",
             lineHeight: "1.8",
           }}
-          radius={100}       
-          duration={1.2}     
-          speed={10}       
-          scrambleChars=".:"
+          radius={100}      
+          duration={1.2}    
+          speed={0.5}   
+          scrambleChars=".:" 
         >
           I am a UP Cebu Computer Science student and DOST Scholar who pairs a 
           strong technical foundation in software engineering with a creative 
@@ -171,7 +183,7 @@ export default function HeroSection() {
       </div>
 
       {/* Ocean waves at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         {/* Wave layer 1 (back) */}
         <svg
           className="wave-layer-1 absolute bottom-0"

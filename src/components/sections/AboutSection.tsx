@@ -132,7 +132,7 @@ export default function AboutSection() {
                 fontSize: "0.95rem",
               }}
             >
-              <p>
+              
                 <ScrambledText radius={100} duration={1.0} speed={0.4} scrambleChars=".:" className="inline">
                   Full-stack developer and BS Computer Science student skilled in building
                   intuitive mobile and web platforms. With a strong foundation in software 
@@ -142,14 +142,8 @@ export default function AboutSection() {
                   and Supabase, backed by a proven track record of delivering collaborative, 
                   functional software solutions.
                 </ScrambledText>
-              </p>
+            
               
-              <p>
-                <ScrambledText radius={100} duration={1.2} speed={0.5} scrambleChars=".:" className="inline">
-                  When I&apos;m not coding, you&apos;ll find me reading books or dreaming about the ocean waves, 
-                  leveling up in game dev, or contributing to open-source projects.
-                </ScrambledText>
-              </p>
             </div>
 
             {/* Skills */}
