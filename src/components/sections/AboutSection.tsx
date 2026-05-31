@@ -4,6 +4,7 @@ import useScrollReveal from "@/lib/useScrollReveal";
 import WaveDivider from "@/components/ui/WaveDivider";
 import Image from "next/image";
 import ScrambledText from '../ui/ScrambledText';
+import ElectricBorder from '../ui/ElectricBorder';
 
 const skills = [
   "JavaScript", "TypeScript", "React", "Next.js",
@@ -100,39 +101,45 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* Right: Bio & Skills */}
-          <div>
-            {/* Section label */}
-            <p
-              className="font-mono text-sm mb-3"
-              style={{ color: "var(--ocean-seafoam)", letterSpacing: "0.12em" }}
-            >
-              01 / ABOUT ME
-            </p>
+         {/* Right: Bio & Skills wrapped with Electric Border Effects Container */}
+          <ElectricBorder
+            color="#88c9bf" 
+            speed={1}                  // Smooth, non-distracting energy pulse rhythm
+            chaos={0.12}                 // Slight structural distortion for a lightning effect
+            borderRadius={20}            // Matches modern component frame roundness
+            style={{ width: "100%" }}
+          >
+            <div className="p-8 md:p-10 bg-[rgba(133, 123, 202, 0.58)] backdrop-blur-md rounded-[20px]">
+              {/* Section label */}
+              <p
+                className="font-mono text-sm mb-3"
+                style={{ color: "var(--ocean-seafoam)", letterSpacing: "0.12em" }}
+              >
+                01 / ABOUT ME
+              </p>
 
-            <h2
-              className="font-display font-bold mb-6"
-              style={{
-                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-                color: "var(--text-main)",
-                lineHeight: "1.2",
-              }}
-            >
-              Crafting digital
-              <span className="gradient-text font-display italic block">
-                {" "}experiences
-              </span>
-            </h2>
+              <h2
+                className="font-display font-bold mb-6"
+                style={{
+                  fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                  color: "var(--text-main)",
+                  lineHeight: "1.2",
+                }}
+              >
+                Crafting digital
+                <span className="gradient-text font-display italic block">
+                  {" "}experiences
+                </span>
+              </h2>
 
-            <div
-              className="space-y-4 mb-8"
-              style={{
-                color: "var(--text-muted)",
-                lineHeight: "1.8",
-                fontSize: "0.95rem",
-              }}
-            >
-              
+              <div
+                className="space-y-4 mb-8"
+                style={{
+                  color: "var(--text-muted)",
+                  lineHeight: "1.8",
+                  fontSize: "0.95rem",
+                }}
+              >
                 <ScrambledText radius={100} duration={1.0} speed={0.4} scrambleChars=".:" className="inline">
                   Full-stack developer and BS Computer Science student skilled in building
                   intuitive mobile and web platforms. With a strong foundation in software 
@@ -142,27 +149,26 @@ export default function AboutSection() {
                   and Supabase, backed by a proven track record of delivering collaborative, 
                   functional software solutions.
                 </ScrambledText>
-            
-              
-            </div>
+              </div>
 
-            {/* Skills */}
-            <div>
-              <p
-                className="font-mono text-xs mb-3"
-                style={{ color: "var(--text-muted)", letterSpacing: "0.1em" }}
-              >
-                TECH STACK
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <span key={skill} className="skill-pill">
-                    {skill}
-                  </span>
-                ))}
+              {/* Skills */}
+              <div>
+                <p
+                  className="font-mono text-xs mb-3"
+                  style={{ color: "var(--text-muted)", letterSpacing: "0.1em" }}
+                >
+                  TECH STACK
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <span key={skill} className="skill-pill">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </ElectricBorder>
         </div>
       </div>
 
