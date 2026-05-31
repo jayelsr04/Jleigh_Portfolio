@@ -83,7 +83,6 @@ body {
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -97,8 +96,6 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--ocean-seafoam);
 }
-
-/* Wave SVG animations */
 .wave-layer-1 {
   animation: waveMove 8s ease-in-out infinite;
 }
@@ -114,7 +111,6 @@ body {
   50% { transform: translateX(-5%); }
 }
 
-/* Particle bubbles */
 .bubble {
   position: absolute;
   border-radius: 50%;
@@ -130,7 +126,6 @@ body {
   100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
 }
 
-/* Section fade-in on scroll */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -141,7 +136,6 @@ body {
   transform: translateY(0);
 }
 
-/* Glassmorphism card */
 .glass-card {
   background: var(--card-bg);
   backdrop-filter: blur(16px);
@@ -149,7 +143,6 @@ body {
   border: 1px solid var(--surface-border);
 }
 
-/* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, var(--ocean-foam) 0%, var(--ocean-seafoam) 50%, var(--sand-mid) 100%);
   -webkit-background-clip: text;
@@ -157,7 +150,6 @@ body {
   background-clip: text;
 }
 
-/* Noise texture overlay */
 .noise-bg::before {
   content: "";
   position: absolute;
@@ -167,7 +159,6 @@ body {
   z-index: 0;
 }
 
-/* Skill pill */
 .skill-pill {
   background: rgba(168, 216, 234, 0.08);
   border: 1px solid rgba(168, 216, 234, 0.2);
@@ -183,7 +174,6 @@ body {
   border-color: rgba(168, 216, 234, 0.5);
 }
 
-/* Nav link underline animation */
 .nav-link {
   position: relative;
   color: var(--ocean-mist);
@@ -263,7 +253,6 @@ html[data-theme="light"] .theme-toggle-track {
   letter-spacing: 0.02em;
 }
 
-/* Button styles */
 .btn-primary {
   background: linear-gradient(135deg, var(--ocean-shallow), var(--ocean-seafoam));
   color: white;
@@ -316,12 +305,10 @@ html[data-theme="light"] .theme-toggle-track {
   transform: translateY(-2px);
 }
 
-/* Active nav */
 .nav-link.active {
   color: var(--ocean-foam);
 }
 
-/* Footer */
 .site-footer {
   position: relative;
   background: linear-gradient(180deg, var(--section-bg) 0%, var(--ocean-deep) 100%);

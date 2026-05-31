@@ -1,10 +1,8 @@
-"use client"; // Required for Next.js app router interactivity
+"use client";
 
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
-
-// Import from your styles directory
 import '../../styles/scrambled-text.css';
 
 gsap.registerPlugin(ScrambleTextPlugin);

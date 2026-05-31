@@ -101,12 +101,12 @@ export default function AboutSection() {
             </div>
           </div>
 
-         {/* Right: Bio & Skills wrapped with Electric Border Effects Container */}
+         {/* Bio */}
           <ElectricBorder
             color="#88c9bf" 
-            speed={1}                  // Smooth, non-distracting energy pulse rhythm
-            chaos={0.12}                 // Slight structural distortion for a lightning effect
-            borderRadius={20}            // Matches modern component frame roundness
+            speed={1}                 
+            chaos={0.12}                
+            borderRadius={20}           
             style={{ width: "100%" }}
           >
             <div className="p-8 md:p-10 bg-[rgba(133, 123, 202, 0.58)] backdrop-blur-md rounded-[20px]">

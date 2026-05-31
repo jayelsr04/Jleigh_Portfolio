@@ -132,7 +132,6 @@ const DotGrid: React.FC<DotGridProps> = ({
     let rafId: number;
     const proxSq = proximity * proximity;
 
-    // Custom lightweight spring physics loop
     const spring = 0.08;
     const friction = 0.85;
 
@@ -146,7 +145,6 @@ const DotGrid: React.FC<DotGridProps> = ({
       const { x: px, y: py } = pointerRef.current;
 
       for (const dot of dotsRef.current) {
-        // Update elastic physics returning to 0 offset
         const ax = -dot.xOffset * spring;
         const ay = -dot.yOffset * spring;
         dot.vx = (dot.vx + ax) * friction;
@@ -186,7 +184,6 @@ const DotGrid: React.FC<DotGridProps> = ({
   }, [proximity, baseColor, activeRgb, baseRgb, circlePath]);
 
   useEffect(() => {
-    // Ensure we are running safely in the browser environment
     if (typeof window === 'undefined') return;
 
     buildGrid();
@@ -195,7 +192,6 @@ const DotGrid: React.FC<DotGridProps> = ({
       buildGrid();
     };
 
-    // Use a local variable to capture the ref element safely for cleanup
     const currentWrapper = wrapperRef.current;
     let ro: ResizeObserver | null = null;
 
