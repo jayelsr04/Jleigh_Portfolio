@@ -3,6 +3,7 @@
 import useScrollReveal from "@/lib/useScrollReveal";
 import WaveDivider from "@/components/ui/WaveDivider";
 import Image from "next/image";
+import ScrambledText from '../ui/ScrambledText';
 
 const skills = [
   "JavaScript", "TypeScript", "React", "Next.js",
@@ -132,17 +133,22 @@ export default function AboutSection() {
               }}
             >
               <p>
-                Full-stack developer and BS Computer Science student skilled in building
-                intuitive mobile and web platforms. With a strong foundation in software 
-                engineering, data structures, and database management, I specialize in 
-                transforming complex logical workflows into clean, user-centric interfaces.
-                My technical toolkit includes JavaScript, TypeScript, Python, React Native, 
-                and Supabase, backed by a proven track record of delivering collaborative, 
-                functional software solutions.
+                <ScrambledText radius={100} duration={1.0} speed={0.4} scrambleChars=".:" className="inline">
+                  Full-stack developer and BS Computer Science student skilled in building
+                  intuitive mobile and web platforms. With a strong foundation in software 
+                  engineering, data structures, and database management, I specialize in 
+                  transforming complex logical workflows into clean, user-centric interfaces.
+                  My technical toolkit includes JavaScript, TypeScript, Python, React Native, 
+                  and Supabase, backed by a proven track record of delivering collaborative, 
+                  functional software solutions.
+                </ScrambledText>
               </p>
+              
               <p>
-                When I&apos;m not coding, you&apos;ll find me reading books or dreaming about the ocean waves, 
-                leveling up in game dev, or contributing to open-source projects.
+                <ScrambledText radius={100} duration={1.2} speed={0.5} scrambleChars=".:" className="inline">
+                  When I&apos;m not coding, you&apos;ll find me reading books or dreaming about the ocean waves, 
+                  leveling up in game dev, or contributing to open-source projects.
+                </ScrambledText>
               </p>
             </div>
 

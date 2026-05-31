@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ScrambledText from '../ui/ScrambledText';
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false);
@@ -110,19 +111,23 @@ export default function HeroSection() {
         </h2>
 
         {/* Bio */}
-        <p
+        <ScrambledText
           className="max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{
             fontSize: "1rem",
             color: "var(--text-muted)",
             lineHeight: "1.8",
           }}
+          radius={100}       
+          duration={1.2}     
+          speed={10}       
+          scrambleChars=".:"
         >
           I am a UP Cebu Computer Science student and DOST Scholar who pairs a 
           strong technical foundation in software engineering with a creative 
           perspective shaped by a love for reading. Driven by logic and inspired 
           by storytelling, I focus on building impactful, user-centric applications.
-        </p>
+        </ScrambledText>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap gap-4 justify-center">
