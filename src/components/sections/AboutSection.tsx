@@ -10,7 +10,7 @@ const skills = [
   "JavaScript", "TypeScript", "React", "Next.js",
   "Node.js", "C", "C++", "Python",
   "MySQL", "PostgreSQL", "Vercel", "REST APIs",
-  "Git", "TailwindCSS", "Figma",
+  "Git", "TailwindCSS", "Figma", "CSS"
 ];
 
 export default function AboutSection() {
