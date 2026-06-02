@@ -10,6 +10,7 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -21,15 +22,35 @@ export default function ContactSection() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setServerError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to send message.");
+      }
+
       setSubmitted(true);
       setForm({ name: "", email: "", message: "" });
-    }, 1200);
+    } catch (err: any) {
+      setServerError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -101,8 +122,15 @@ export default function ContactSection() {
         ) : (
           /* Contact Form */
           <div className="glass-card rounded-2xl p-8 md:p-10">
+            {/* Global API Error Alert */}
+            {serverError && (
+              <div className="mb-6 p-4 rounded-xl text-sm border bg-red-500/10 text-red-400 border-red-500/20">
+                ⚠️ {serverError}
+              </div>
+            )}
+
             <div className="grid md:grid-cols-2 gap-5 mb-5">
-              {/* Name */}
+              {/* Name Input */}
               <div>
                 <label
                   className="block text-sm mb-1.5 font-mono"
@@ -123,16 +151,6 @@ export default function ContactSection() {
                     color: "var(--text-main)",
                     fontSize: "0.92rem",
                   }}
-                  onFocus={(e) => {
-                    if (!errors.name)
-                      (e.target as HTMLInputElement).style.borderColor =
-                        "var(--ocean-foam)";
-                  }}
-                  onBlur={(e) => {
-                    if (!errors.name)
-                      (e.target as HTMLInputElement).style.borderColor =
-                        "var(--surface-border)";
-                  }}
                 />
                 {errors.name && (
                   <p className="text-xs mt-1" style={{ color: "var(--coral)" }}>
@@ -141,7 +159,7 @@ export default function ContactSection() {
                 )}
               </div>
 
-              {/* Email */}
+              {/* Email Input */}
               <div>
                 <label
                   className="block text-sm mb-1.5 font-mono"
@@ -162,16 +180,6 @@ export default function ContactSection() {
                     color: "var(--text-main)",
                     fontSize: "0.92rem",
                   }}
-                  onFocus={(e) => {
-                    if (!errors.email)
-                      (e.target as HTMLInputElement).style.borderColor =
-                        "var(--ocean-foam)";
-                  }}
-                  onBlur={(e) => {
-                    if (!errors.email)
-                      (e.target as HTMLInputElement).style.borderColor =
-                        "var(--surface-border)";
-                  }}
                 />
                 {errors.email && (
                   <p className="text-xs mt-1" style={{ color: "var(--coral)" }}>
@@ -181,7 +189,7 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Message */}
+            {/* Message Textarea */}
             <div className="mb-7">
               <label
                 className="block text-sm mb-1.5 font-mono"
@@ -204,16 +212,6 @@ export default function ContactSection() {
                   fontSize: "0.92rem",
                   lineHeight: "1.7",
                 }}
-                onFocus={(e) => {
-                  if (!errors.message)
-                    (e.target as HTMLTextAreaElement).style.borderColor =
-                      "var(--ocean-foam)";
-                }}
-                onBlur={(e) => {
-                  if (!errors.message)
-                    (e.target as HTMLTextAreaElement).style.borderColor =
-                      "var(--surface-border)";
-                }}
               />
               {errors.message && (
                 <p className="text-xs mt-1" style={{ color: "var(--coral)" }}>
@@ -222,7 +220,7 @@ export default function ContactSection() {
               )}
             </div>
 
-            {/* Submit */}
+            {/* Submit Button */}
             <button
               className="btn-primary w-full flex items-center justify-center gap-2"
               onClick={handleSubmit}
@@ -231,9 +229,7 @@ export default function ContactSection() {
             >
               {loading ? (
                 <>
-                  <span
-                    className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"
-                  />
+                  <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
                   Sending...
                 </>
               ) : (
