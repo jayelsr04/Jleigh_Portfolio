@@ -4,6 +4,20 @@ import useScrollReveal from "@/lib/useScrollReveal";
 import WaveDivider from "@/components/ui/WaveDivider";
 import BorderGlow from "@/components/ui/BorderGlow";
 import Image from "next/image";
+import React from "react";
+import { 
+  SiReact, 
+  SiFirebase, 
+  SiExpress, 
+  SiPostgresql, 
+  SiJsonwebtokens, 
+  SiNodedotjs, 
+  SiTypescript, 
+  SiJavascript, 
+  SiHtml5, 
+  SiCss,
+  SiPrisma,
+} from "react-icons/si";
 
 interface Project {
   title: string;
@@ -12,6 +26,7 @@ interface Project {
   link: string;
   image: string;
   accent: string;
+  stackLogos: { name: string; icon: React.ReactNode }[]; 
 }
 
 const projects: Project[] = [
@@ -23,6 +38,10 @@ const projects: Project[] = [
     link: "https://github.com/secretiv3plotter/Med-Dumdom",
     image: "/meddumdom.png",
     accent: "#9595f6",
+    stackLogos: [
+      { name: "React", icon: <SiReact /> },
+      { name: "Firebase JS", icon: <SiFirebase /> },
+    ]
   },
   {
     title: "SlimyPals",
@@ -32,6 +51,14 @@ const projects: Project[] = [
     link: "https://github.com/secretiv3plotter/SlimyPalsBackend",
     image: "/slimypals.png",
     accent: "#3434a3",
+    stackLogos: [
+      { name: "Express", icon: <SiExpress /> },
+      { name: "PostgreSQL", icon: <SiPostgresql /> },
+      { name: "JWT Auth", icon: <SiJsonwebtokens /> },
+      { name: "JavaScript", icon: <SiJavascript /> },
+      { name: "HTML5", icon: <SiHtml5 /> },
+      { name: "CSS3", icon: <SiCss /> } 
+    ]
   },
   {
     title: "UPC Dorm Management System",
@@ -41,6 +68,13 @@ const projects: Project[] = [
     link: "https://github.com/leidc024/UPC-DMS.git",
     image: "/dorm.png",
     accent: "#e0c08a",
+    stackLogos: [
+      { name: "Neon Database", icon: <SiPrisma /> },
+      { name: "Node.js", icon: <SiNodedotjs /> },
+      { name: "JavaScript", icon: <SiJavascript /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
+      { name: "React JS", icon: <SiReact /> }
+    ]
   },
 ];
 
@@ -75,7 +109,7 @@ export default function ProjectsSection() {
           </h2>
         </div>
 
-        {/* Project Cards */}
+        {/* Project Cards Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {projects.map((project, i) => (
             <ProjectCard key={project.title} project={project} index={i} />
@@ -98,11 +132,9 @@ function ProjectCard({
   const ref = useScrollReveal();
 
   return (
-    <div ref={ref} className="h-full" style={{ transitionDelay: `${index * 0.1}s` }}>
+    <div ref={ref} className="flex h-full" style={{ transitionDelay: `${index * 0.1}s` }}>
       <BorderGlow
-        className="h-full group cursor-pointer"
-        glowColor={project.accent}
-        backgroundColor="var(--card-bg)"
+        className="w-full flex flex-col group cursor-pointer" 
         borderRadius={28}
         glowRadius={48}
         glowIntensity={0.9}
@@ -118,76 +150,96 @@ function ProjectCard({
           }}
         />
 
-        {/* Card content */}
-        <div className="p-6 flex-1 flex flex-col">
-          {/* Project image */}
-          <div
-            className="w-full rounded-xl overflow-hidden mb-4"
-            style={{ height: "160px", position: "relative" }}
-          >
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </div>
-
-          <h3
-            className="font-display font-bold mb-3"
-            style={{ fontSize: "1.25rem", color: "var(--text-main)" }}
-          >
-            {project.title}
-          </h3>
-
-          <p
-            className="mb-5 leading-relaxed"
-            style={{
-              fontSize: "0.87rem",
-              color: "var(--text-muted)",
-              lineHeight: "1.75",
-            }}
-          >
-            {project.description}
-          </p>
-
-          {/* Tech tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="skill-pill text-xs"
-                style={{
-                  color: project.accent,
-                  borderColor: `${project.accent}30`,
-                  background: `${project.accent}08`,
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-
-          {/* Links */}
-          <div className="flex items-center gap-4 mt-auto">
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium transition-all duration-200 hover:gap-2.5"
-              style={{ color: project.accent }}
+        {/* Card content wrapper */}
+        <div className="p-6 flex-1 flex flex-col justify-between z-10">
+          <div>
+            {/* Project image */}
+            <div
+              className="w-full rounded-xl overflow-hidden mb-4"
+              style={{ height: "160px", position: "relative" }}
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+
+            <h3
+              className="font-display font-bold mb-3"
+              style={{ fontSize: "1.25rem", color: "var(--text-main)" }}
+            >
+              {project.title}
+            </h3>
+
+            <p
+              className="mb-4 leading-relaxed"
+              style={{
+                fontSize: "0.87rem",
+                color: "var(--text-muted)",
+                lineHeight: "1.75",
+              }}
+            >
+              {project.description}
+            </p>
+
+            {/* Tech Stack Logo List with Hover Titles */}
+            <div className="flex flex-wrap items-center gap-3.5 mb-5 text-[1.35rem]">
+              {project.stackLogos.map((tech) => (
+                <div 
+                  key={tech.name} 
+                  title={tech.name} 
+                  className="transition-colors duration-200"
+                  style={{ color: "var(--text-muted)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = project.accent)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+                >
+                  {tech.icon}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            {/* Tech tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {project.tech.map((t) => (
+                <span
+                  key={t}
+                  className="skill-pill text-xs"
+                  style={{
+                    color: project.accent,
+                    borderColor: `${project.accent}30`,
+                    background: `${project.accent}08`,
+                  }}
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            {/* Links */}
+            <div className="flex items-center gap-4 mt-auto">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-sm font-medium transition-all duration-200 hover:gap-2.5"
+                style={{ color: project.accent }}
               >
-                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-              </svg>
-              View Code
-              <span>{"->"}</span>
-            </a>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+                </svg>
+                View Code
+                <span>{"->"}</span>
+              </a>
+            </div>
           </div>
         </div>
       </BorderGlow>
